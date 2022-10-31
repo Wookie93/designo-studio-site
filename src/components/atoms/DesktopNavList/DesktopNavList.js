@@ -1,18 +1,22 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { theme } from '../../../assets/styles/theme';
 
 //// dopisać obdługę scrolla i zmianę tła
 
 const DesktopStyledNav = styled.ul`
   display: none;
-  ${theme.mq.desktop} {
+
+  ${({ theme }) => theme.mq.tablet} {
     display: flex;
     padding: 48px 24px;
     list-style: none;
-    font-size: ${theme.font.size.l};
+    font-size: ${({ theme }) => theme.font.size.l};
     li {
+      font-size: 14px;
+      letter-spacing: 2px;
+      margin-left: 42px;
       margin-bottom: 32px;
+      color: ${({ theme }) => theme.secondaryDarkGray};
     }
   }
 `;

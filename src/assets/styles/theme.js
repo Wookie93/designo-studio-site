@@ -1,10 +1,11 @@
 export const theme = {
-  primaryPeach: '#E7816B',
-  primaryBlack: '#1D1C1E',
-  primaryWhite: '#FFFFFF',
-  secondaryPeach: '#FFAD9B',
-  secondaryDarkGray: '#333136',
-  secondaryLigthGray: '#DFDFDF',
+  primaryPeach: 'rgba(231, 129, 107, 1)',
+  primaryBlack: ' rgba(29, 28, 30, 1)',
+  primaryWhite: ' rgba(255, 255, 255, 1)',
+  secondaryPeach: 'rgba(255, 173, 155, 1)',
+  secondaryDarkGray: 'rgba(51, 49, 54, 1)',
+  secondaryLigthGray: ' rgba(241, 243, 245, 1)',
+  radius: '8px',
   font: {
     size: {
       xxl: '48px',

@@ -1,9 +1,8 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { theme } from '../../../assets/styles/theme';
 
 const MobileListWrap = styled.div`
-  ${theme.mq.desktop} {
+  ${({ theme }) => theme.mq.tablet} {
     display: none;
   }
 `;
@@ -16,9 +15,9 @@ const MobileStyledNavList = styled.ul`
   right: 0;
   padding: 48px 24px;
   list-style: none;
-  font-size: ${theme.font.size.l};
-  color: ${theme.primaryWhite};
-  background-color: ${theme.primaryBlack};
+  font-size: ${({ theme }) => theme.font.size.l};
+  color: ${({ theme }) => theme.primaryWhite};
+  background-color: ${({ theme }) => theme.primaryBlack};
 
   li {
     margin-bottom: 32px;

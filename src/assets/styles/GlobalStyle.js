@@ -23,8 +23,13 @@ h1{
     }
 }
 h2{
-    font-size: ${theme.font.size.xl};
+    font-size: 32px;
     letter-spacing: 2px;
+    line-height: 36px;
+
+    ${theme.mq.desktop}{
+        font-size: ${theme.font.size.xl};
+    }
 }
 h3{
     font-size: ${theme.font.size.l};
@@ -32,7 +37,12 @@ h3{
     font-weight: 400;
 }
 section{
+    margin-bottom: 120px;
     padding: 0 24px;
+
+    ${theme.mq.tablet} {
+    padding: 0;
+    }
 }
 p,
 button, 

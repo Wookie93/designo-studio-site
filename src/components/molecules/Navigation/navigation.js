@@ -1,6 +1,5 @@
 import * as React from 'react';
 import styled from 'styled-components';
-import { theme } from '../../../assets/styles/theme';
 import DesktopNavList from '../../atoms/DesktopNavList/DesktopNavList';
 import MobileNavList from '../../atoms/MobileNavList/MobileNavList';
 
@@ -10,7 +9,17 @@ const StyledNav = styled.nav`
   align-items: center;
   padding: 0 25px;
   height: 96px;
-  background-color: ${theme.primaryWhite};
+  background-color: ${({ theme }) => theme.primaryWhite};
+
+  ${({ theme }) => theme.mq.tablet} {
+    max-width: calc(690px + 50px);
+    margin: auto;
+  }
+
+  ${({ theme }) => theme.mq.desktop} {
+    max-width: calc(1110px + 50px);
+    margin: auto;
+  }
 `;
 
 const Navigation = () => {
