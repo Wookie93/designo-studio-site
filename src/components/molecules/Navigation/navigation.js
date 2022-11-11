@@ -1,6 +1,7 @@
 import * as React from 'react';
 import styled from 'styled-components';
 import DesktopNavList from '../../atoms/DesktopNavList/DesktopNavList';
+import Logo from '../../atoms/Logo/Logo';
 import MobileNavList from '../../atoms/MobileNavList/MobileNavList';
 
 const StyledNav = styled.nav`
@@ -26,7 +27,7 @@ const Navigation = () => {
   return (
     <>
       <StyledNav>
-        <div>LOGO</div>
+        <Logo type={'dark'} />
         <DesktopNavList />
         <MobileNavList />
       </StyledNav>

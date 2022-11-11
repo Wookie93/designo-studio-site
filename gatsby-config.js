@@ -18,7 +18,15 @@ module.exports = {
         },
       },
     },
-    'gatsby-plugin-image',
+    {
+      resolve: 'gatsby-plugin-image',
+      options: {
+        defaults: {
+          placeholder: 'blurred',
+          backgroundColor: `transparent`,
+        },
+      },
+    },
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     'gatsby-plugin-styled-components',

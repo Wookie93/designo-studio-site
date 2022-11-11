@@ -1,55 +1,41 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import Banner from '../../atoms/Banner/Banner.js';
 
 const ImageWithTextSection = styled.section`
   display: grid;
-  row-gap: 24px;
   margin-bottom: 120px;
+  row-gap: 24px;
 
   ${({ theme }) => theme.mq.desktop} {
     grid-template-columns: 1fr 1fr;
     grid-template-rows: 1fr 1fr;
     column-gap: 30px;
-  }
-`;
-
-const ImageWithText = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  height: 100%;
-  margin: auto;
-  background-color: gray;
-  border-radius: 8px;
-  &:first-of-type {
-    ${({ theme }) => theme.mq.desktop} {
-      grid-row: 1 / 4;
-    }
+    row-gap: 0;
   }
 `;
 
 const Banners = () => {
   return (
     <ImageWithTextSection>
-      <ImageWithText>
-        <div>
-          <p>Web Design</p>
-          <button>View Projects</button>
-        </div>
-      </ImageWithText>
-      <ImageWithText>
-        <div>
-          <p>Web Design</p>
-          <button>View Projects</button>
-        </div>
-      </ImageWithText>
-      <ImageWithText>
-        <div>
-          <p>Web Design</p>
-          <button>View Projects</button>
-        </div>
-      </ImageWithText>
+      <Banner
+        title={'Web Design'}
+        link={'/web-design'}
+        mobile={'webDesignMobile'}
+        desktop={'webDesign'}
+      />
+      <Banner
+        title={'App Design'}
+        link={'/app-design'}
+        mobile={'appDesignMobile'}
+        desktop={'appDesign'}
+      />
+      <Banner
+        title={'Graphic Design'}
+        link={'/graphic-design'}
+        mobile={'graphicDesignMobile'}
+        desktop={'graphicDesign'}
+      />
     </ImageWithTextSection>
   );
 };

@@ -18,7 +18,7 @@ const MobileStyledNavList = styled.ul`
   font-size: ${({ theme }) => theme.font.size.l};
   color: ${({ theme }) => theme.primaryWhite};
   background-color: ${({ theme }) => theme.primaryBlack};
-
+  z-index: 99;
   li {
     margin-bottom: 32px;
   }

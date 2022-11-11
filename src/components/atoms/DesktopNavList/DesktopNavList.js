@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 
 //// dopisać obdługę scrolla i zmianę tła
@@ -8,16 +9,29 @@ const DesktopStyledNav = styled.ul`
 
   ${({ theme }) => theme.mq.tablet} {
     display: flex;
-    padding: 48px 24px;
     list-style: none;
     font-size: ${({ theme }) => theme.font.size.l};
     li {
       font-size: 14px;
       letter-spacing: 2px;
       margin-left: 42px;
-      margin-bottom: 32px;
       color: ${({ theme }) => theme.secondaryDarkGray};
     }
+  }
+`;
+
+const StyledLink = styled(Link)`
+  text-decoration: none;
+  color: ${({ theme }) => theme.primaryBlack};
+
+  &:hover::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 1px;
+    background: ${({ theme }) => theme.secondaryDarkGray};
+    margin-top: -5px;
+    opacity: 0.3;
   }
 `;
 
@@ -25,9 +39,15 @@ const DesktopNavList = () => {
   return (
     <>
       <DesktopStyledNav>
-        <li>Our Company</li>
-        <li>Locations</li>
-        <li>Contact</li>
+        <li>
+          <StyledLink to="/about/">Our Company</StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/locations/">Locations</StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/contact/">Contact</StyledLink>
+        </li>
       </DesktopStyledNav>
     </>
   );

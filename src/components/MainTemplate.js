@@ -10,9 +10,10 @@ const StyledContener = styled.div`
   padding: 0 25px;
   ${theme.mq.tablet} {
     max-width: calc(690px + 50px);
+    padding: 0px;
   }
   ${theme.mq.desktop} {
-    max-width: calc(1110px + 50px);
+    max-width: 1110px;
   }
 `;
 

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import Logo from '../../atoms/Logo/Logo';
 import Newsletter from '../../atoms/Newsletter/Newsletter';
 
 const StyledFooter = styled.footer`
@@ -16,7 +17,7 @@ const StyledFooter = styled.footer`
     text-align: center;
 
     ${({ theme }) => theme.mq.tablet} {
-      max-width: 690px;
+      max-width: calc(690px + 50px);
       margin: auto;
       padding: 0;
     }
@@ -106,6 +107,9 @@ const StyledInnerFooter = styled.div`
       p:first-of-type {
         font-weight: 700;
       }
+      p {
+        color: ${({ theme }) => theme.primaryWhite};
+      }
       ${({ theme }) => theme.mq.tablet} {
         margin-right: 56px;
       }
@@ -138,7 +142,7 @@ const Footer = () => {
         <StyledInnerFooter>
           <div className="inner-top">
             <div className="logo">
-              <p>LOGO</p>
+              <Logo />
             </div>
             <a href="/#">our company</a>
             <a href="/#">our company</a>

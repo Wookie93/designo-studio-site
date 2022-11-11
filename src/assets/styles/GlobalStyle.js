@@ -17,9 +17,9 @@ h1{
     font-size: ${theme.font.sizeMobile.xxl};
     line-height: 36px;
 
-    ${theme.mq.desktop}{
+    ${theme.mq.tablet}{
         font-size: ${theme.font.size.xxl};
-        line-height: 46px;
+        line-height: 48px;
     }
 }
 h2{
@@ -29,6 +29,7 @@ h2{
 
     ${theme.mq.desktop}{
         font-size: ${theme.font.size.xl};
+        line-height: 48px;
     }
 }
 h3{
@@ -38,8 +39,7 @@ h3{
 }
 section{
     margin-bottom: 120px;
-    padding: 0 24px;
-
+    
     ${theme.mq.tablet} {
     padding: 0;
     }
@@ -47,8 +47,11 @@ section{
 p,
 button, 
 a{
-    font-size: ${theme.font.sizeMobile.m};
+    font-size: ${theme.font.size.m};
     font-weight: 400;
     line-height: 26px;
+}
+p{
+    color:${theme.primaryBlack};
 }
 `;
