@@ -18,6 +18,7 @@ const StyledMapWrapper = styled.div`
     ${({ theme }) => theme.mq.desktop} {
       width: 350px;
       margin: 0;
+      order: ${({ position }) => (position === 'first' ? 1 : 0)};
     }
   }
 
@@ -29,6 +30,7 @@ const StyledMapWrapper = styled.div`
 
   ${({ theme }) => theme.mq.desktop} {
     display: flex;
+    justify-content: space-between;
     margin-bottom: 32px;
   }
 `;
@@ -46,10 +48,10 @@ const StyledInfoWrapper = styled.div`
   }
 
   ${({ theme }) => theme.mq.desktop} {
-    flex-grow: 1;
+    order: ${({ position }) => (position === 'first' ? 0 : 1)};
+    width: 730px;
     height: 320px;
     text-align: left;
-    margin-left: 30px;
   }
 `;
 
@@ -60,6 +62,7 @@ const StyledInfo = styled.div`
     font-size: 32px;
     line-height: 36px;
     margin-bottom: 24px;
+
     ${({ theme }) => theme.mq.desktop} {
       flex-basis: 100%;
     }
@@ -104,7 +107,26 @@ const LocationsPage = () => {
 
       <StyledMapWrapper>
         <div className="image"></div>
-        <StyledInfoWrapper>
+        <StyledInfoWrapper position={'first'}>
+          <StyledInfo>
+            <p className="map-title">Canada</p>
+            <div className="info">
+              <p>Designo Central Office</p>
+              <p>3886 Wellington Street</p>
+              <p>Toronto, Ontario M9C 3J5</p>
+            </div>
+            <div className="info">
+              <p>Contact</p>
+              <p>P : +1 253-863-8967</p>
+              <p>M : contact@designo.co</p>
+            </div>
+          </StyledInfo>
+        </StyledInfoWrapper>
+      </StyledMapWrapper>
+
+      <StyledMapWrapper>
+        <div className="image"></div>
+        <StyledInfoWrapper position={'first'}>
           <StyledInfo>
             <p className="map-title">Canada</p>
             <div className="info">
