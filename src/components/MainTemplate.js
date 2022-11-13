@@ -8,9 +8,10 @@ import Navigation from './molecules/Navigation/navigation';
 const StyledContener = styled.div`
   margin: auto;
   padding: 0 25px;
+
   ${theme.mq.tablet} {
-    max-width: calc(690px + 50px);
-    padding: 0px;
+    max-width: 690px;
+    padding: 0;
   }
   ${theme.mq.desktop} {
     max-width: 1110px;

@@ -13,12 +13,13 @@ const StyledNav = styled.nav`
   background-color: ${({ theme }) => theme.primaryWhite};
 
   ${({ theme }) => theme.mq.tablet} {
-    max-width: calc(690px + 50px);
+    max-width: 690px;
+    padding: 0;
     margin: auto;
   }
 
   ${({ theme }) => theme.mq.desktop} {
-    max-width: calc(1110px + 50px);
+    max-width: 1110px;
     margin: auto;
   }
 `;

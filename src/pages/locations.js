@@ -105,7 +105,7 @@ const LocationsPage = () => {
         </StyledInfoWrapper>
       </StyledMapWrapper>
 
-      <StyledMapWrapper>
+      <StyledMapWrapper position={'first'}>
         <div className="image"></div>
         <StyledInfoWrapper position={'first'}>
           <StyledInfo>
@@ -126,7 +126,7 @@ const LocationsPage = () => {
 
       <StyledMapWrapper>
         <div className="image"></div>
-        <StyledInfoWrapper position={'first'}>
+        <StyledInfoWrapper>
           <StyledInfo>
             <p className="map-title">Canada</p>
             <div className="info">
