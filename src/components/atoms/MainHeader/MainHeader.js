@@ -1,4 +1,7 @@
+import * as React from 'react';
+import Button from '../../atoms/Button/Button';
 import styled from 'styled-components';
+import { StaticImage } from 'gatsby-plugin-image';
 
 export const StyledHeaderWrapper = styled.section`
   position: relative;
@@ -24,26 +27,33 @@ export const StyledHeaderWrapper = styled.section`
   }
 
   .gatsby-image-wrapper {
-    height: 320px;
-    margin-bottom: 16px;
+    transform: translateY(108px);
+    margin-top: -200px;
+    z-index: 1;
 
-    ${({ theme }) => theme.mq.tablet} {
-      width: 100%;
-      margin-bottom: 0;
-    }
     ${({ theme }) => theme.mq.desktop} {
-      width: 476px;
-      height: 480px;
-      margin-bottom: 0;
+      transform: unset;
+      margin-top: 0;
       margin-left: auto;
     }
   }
 
   .bcg {
     position: absolute;
-    right: 0;
+    top: 185px;
+    left: 0;
+    width: 640px;
+    height: 640px;
+    z-index: 0;
+
     ${({ theme }) => theme.mq.tablet} {
-      width: 80%;
+      top: 200px;
+      right: -99px;
+      left: unset;
+    }
+    ${({ theme }) => theme.mq.desktop} {
+      top: 0;
+      right: 0;
     }
   }
 `;
@@ -72,9 +82,12 @@ export const StyledHeaderTextWrapper = styled.div`
     margin: 28px 0 40px 0;
     color: ${({ theme }) => theme.primaryWhite};
     z-index: 2;
-
+    ${({ theme }) => theme.mq.tablet} {
+      width: 60%;
+    }
     ${({ theme }) => theme.mq.desktop} {
-      margin: 32px auto 0 auto;
+      margin: 28px 0 40px 0;
+      width: 85%;
     }
   }
 
@@ -87,3 +100,29 @@ export const StyledHeaderTextWrapper = styled.div`
     padding: 0;
   }
 `;
+
+const MainHeader = ({
+  children,
+  title,
+  desc,
+  ifBtn = false,
+  ifImage = false,
+}) => {
+  return (
+    <StyledHeaderWrapper ifImage={ifImage}>
+      <StyledHeaderTextWrapper ifImage={ifImage}>
+        <h1>{title}</h1>
+        <p>{desc}</p>
+        {!ifBtn ? null : <Button>Learn more</Button>}
+      </StyledHeaderTextWrapper>
+      {children}
+      <StaticImage
+        src="../../../assets/bcgs/desktop/bg-pattern-hero-home.svg"
+        alt=""
+        className="bcg"
+      />
+    </StyledHeaderWrapper>
+  );
+};
+
+export default MainHeader;

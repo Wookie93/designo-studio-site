@@ -1,18 +1,23 @@
+import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
-import Button from '../../atoms/Button/Button';
 import { StyledHeaderWrapper, StyledHeaderTextWrapper } from './Header.styles';
 
-const Header = ({ children, title, desc, ifBtn }) => {
-  const path = '../../../assets/images/main-page/desktop';
-
+const Header = ({ children, title, desc, ifImage = false, ifBcg = true }) => {
   return (
-    <StyledHeaderWrapper>
+    <StyledHeaderWrapper ifImage={ifImage}>
       {children}
-      <StyledHeaderTextWrapper>
+      <StyledHeaderTextWrapper ifImage={ifImage}>
         <h1>{title}</h1>
         <p>{desc}</p>
       </StyledHeaderTextWrapper>
-      {!ifBtn ? null : <Button />}
+      {ifBcg ? (
+        <StaticImage
+          className="bcg"
+          src="../../../assets/bcgs/desktop/bg-pattern-intro-web.svg"
+          alt=""
+          width={876}
+        />
+      ) : null}
     </StyledHeaderWrapper>
   );
 };

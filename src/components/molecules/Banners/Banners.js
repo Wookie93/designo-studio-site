@@ -32,7 +32,7 @@ const Banners = () => {
       />
       <Banner
         title={'Graphic Design'}
-        link={'/graphic-design'}
+        link={'/graphic-desing'}
         mobile={'graphicDesignMobile'}
         desktop={'graphicDesign'}
       />

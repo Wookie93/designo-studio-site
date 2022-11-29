@@ -2,8 +2,6 @@ import * as React from 'react';
 import { Link } from 'gatsby';
 import styled from 'styled-components';
 
-//// dopisać obdługę scrolla i zmianę tła
-
 const DesktopStyledNav = styled.ul`
   display: none;
 

@@ -19,6 +19,10 @@ const StyledIconWrap = styled.div`
   text-align: center;
   margin-bottom: 80px;
 
+  ${({ theme }) => theme.mq.desktop} {
+    margin-bottom: 0px;
+  }
+
   h3 {
     margin: 48px 0 32px 0;
     text-transform: uppercase;
@@ -51,7 +55,6 @@ const StyledIconWrap = styled.div`
         rgba(93, 2, 2, 0.497569) 100%
       );
       opacity: 0.2;
-      transform: matrix(-1, 0, 0, 1, 0, 0);
       &:nth-child(0) {
         transform: matrix(-1, 0, 0, 1, 0, 0);
       }

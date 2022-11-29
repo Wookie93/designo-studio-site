@@ -1,9 +1,21 @@
 import * as React from 'react';
 import styled from 'styled-components';
+import hamburgerIco from '../../../assets/icons/icon-hamburger.svg';
+import closeIco from '../../../assets/icons/icon-close.svg';
 
 const MobileListWrap = styled.div`
+  &::after {
+    content: '';
+    display: block;
+    background-color: black;
+  }
   ${({ theme }) => theme.mq.tablet} {
     display: none;
+  }
+
+  .burger-ico {
+    background: none;
+    border: none;
   }
 `;
 
@@ -19,6 +31,7 @@ const MobileStyledNavList = styled.ul`
   color: ${({ theme }) => theme.primaryWhite};
   background-color: ${({ theme }) => theme.primaryBlack};
   z-index: 99;
+
   li {
     margin-bottom: 32px;
   }
@@ -27,9 +40,16 @@ const MobileStyledNavList = styled.ul`
 const MobileNavList = () => {
   const [nav, showNav] = React.useState(false);
 
+  function toggleMenu(nav) {
+    showNav(nav);
+    document.querySelector('body').classList.toggle('open-menu');
+  }
+
   return (
     <MobileListWrap>
-      <button onClick={() => showNav(!nav)}>X</button>
+      <button onClick={() => toggleMenu(!nav)} className="burger-ico">
+        <img src={nav ? closeIco : hamburgerIco} />
+      </button>
       <MobileStyledNavList nav={nav}>
         <li>Our Company</li>
         <li>Locations</li>

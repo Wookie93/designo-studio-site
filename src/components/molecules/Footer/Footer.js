@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import Logo from '../../atoms/Logo/Logo';
 import Newsletter from '../../atoms/Newsletter/Newsletter';
+import { StaticImage } from 'gatsby-plugin-image';
 
 const StyledFooter = styled.footer`
   position: relative;
@@ -100,7 +101,7 @@ const StyledInnerFooter = styled.div`
   }
 
   .inner-bottom {
-    div {
+    & > div {
       opacity: 0.5;
       margin-bottom: 40px;
 
@@ -119,9 +120,10 @@ const StyledInnerFooter = styled.div`
     }
 
     .social-media {
-      width: 184px;
-      height: 24px;
-      background-color: gray;
+      display: flex;
+      gap: 16px;
+      opacity: 1;
+
       ${({ theme }) => theme.mq.tablet} {
         margin-right: 0;
         margin-left: auto;
@@ -159,7 +161,38 @@ const Footer = () => {
               <p>3886 Wellington Street</p>
               <p>Toronto, Ontario M9C 3J5</p>
             </div>
-            <div className="social-media"></div>
+            <div className="social-media">
+              <StaticImage
+                src="../../../assets/icons/icon-facebook.svg"
+                alt="Facebok"
+                width={24}
+                height={24}
+              />
+              <StaticImage
+                src="../../../assets/icons/icon-youtube.svg"
+                alt="YouTube"
+                width={24}
+                height={24}
+              />
+              <StaticImage
+                src="../../../assets/icons/icon-twitter.svg"
+                alt="Twitter"
+                width={24}
+                height={20}
+              />
+              <StaticImage
+                src="../../../assets/icons/icon-pinterest.svg"
+                alt="Pinterest"
+                width={24}
+                height={24}
+              />
+              <StaticImage
+                src="../../../assets/icons/icon-instagram.svg"
+                alt="Instagram"
+                width={24}
+                height={24}
+              />
+            </div>
           </div>
         </StyledInnerFooter>
       </div>

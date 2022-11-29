@@ -10,6 +10,7 @@ const BannerWrapper = styled.div`
   max-width: 327px;
   margin: auto;
   border-radius: 8px;
+  z-index: 1;
 
   ${({ theme }) => theme.mq.tablet} {
     max-width: unset;
@@ -40,7 +41,7 @@ const BannerWrapper = styled.div`
     height: 100%;
     background-color: ${({ theme }) => theme.primaryBlack};
     z-index: 1;
-    opacity: 0.2;
+    opacity: 0.6;
     border-radius: 8px;
     transition: 0.3s linear;
   }

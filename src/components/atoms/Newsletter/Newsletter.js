@@ -1,3 +1,4 @@
+import { StaticImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import styled from 'styled-components';
 import Button from '../../atoms/Button/Button';
@@ -11,6 +12,19 @@ const StyledNewsletter = styled.div`
   background-color: ${({ theme }) => theme.primaryPeach};
   border-radius: ${({ theme }) => theme.radius};
   overflow: hidden;
+
+  ${({ theme }) => theme.mq.tablet} {
+    padding: 58px;
+    margin-bottom: 80px;
+  }
+
+  ${({ theme }) => theme.mq.desktop} {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 63px 96px;
+    text-align: left;
+  }
 
   h2 {
     ${({ theme }) => theme.mq.tablet} {
@@ -34,27 +48,31 @@ const StyledNewsletter = styled.div`
     }
   }
 
-  ${({ theme }) => theme.mq.tablet} {
-    padding: 58px;
-  }
+  .bcg-desktop {
+    display: none;
 
-  ${({ theme }) => theme.mq.desktop} {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 63px 96px;
-    text-align: left;
+    ${({ theme }) => theme.mq.tablet} {
+      display: block;
+      position: absolute;
+      top: -120px;
+      right: -134px;
+      z-index: 0;
+    }
+    ${({ theme }) => theme.mq.desktop} {
+      top: unset;
+      right: 0;
+    }
   }
 `;
 
 const StyledContent = styled.div`
+  z-index: 1;
   ${({ theme }) => theme.mq.desktop} {
     display: flex;
     justify-content: space-between;
     align-items: center;
     width: 100%;
   }
-  z-index: 1;
 `;
 
 const Newsletter = () => {
@@ -70,6 +88,11 @@ const Newsletter = () => {
         </div>
         <Button>get in touch</Button>
       </StyledContent>
+      <StaticImage
+        className="bcg-desktop"
+        src="../../../assets/bcgs/desktop/bg-pattern-call-to-action.svg"
+        alt=""
+      />
     </StyledNewsletter>
   );
 };

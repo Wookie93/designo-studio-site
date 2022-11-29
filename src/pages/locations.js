@@ -45,13 +45,13 @@ const StyledInfoWrapper = styled.div`
 
   ${({ theme }) => theme.mq.tablet} {
     border-radius: ${({ theme }) => theme.radius};
+    text-align: left;
   }
 
   ${({ theme }) => theme.mq.desktop} {
     order: ${({ position }) => (position === 'first' ? 0 : 1)};
     width: 730px;
     height: 320px;
-    text-align: left;
   }
 `;
 
@@ -63,7 +63,7 @@ const StyledInfo = styled.div`
     line-height: 36px;
     margin-bottom: 24px;
 
-    ${({ theme }) => theme.mq.desktop} {
+    ${({ theme }) => theme.mq.tablet} {
       flex-basis: 100%;
     }
   }
@@ -74,7 +74,7 @@ const StyledInfo = styled.div`
     }
   }
 
-  ${({ theme }) => theme.mq.desktop} {
+  ${({ theme }) => theme.mq.tablet} {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

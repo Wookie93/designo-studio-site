@@ -4,7 +4,8 @@ import styled from 'styled-components';
 import arrow from '../../../assets/icons/icon-right-arrow.svg';
 
 const StyledButton = styled.button`
-  color: ${({ theme }) => theme.primaryBlack};
+  color: ${({ issecondary, theme }) =>
+    issecondary ? theme.primaryWhite : theme.primaryBlack};
   padding: 18px 25px;
   background-color: ${({ issecondary, theme }) =>
     issecondary ? 'unset' : theme.primaryWhite};
@@ -13,12 +14,20 @@ const StyledButton = styled.button`
   letter-spacing: ${({ issecondary }) => (issecondary ? '2px' : '1px')};
   font-weight: 600;
   text-transform: uppercase;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  z-index: 2;
+
+  &:hover {
+    background-color: ${({ issecondary }) =>
+      issecondary ? 'unset' : '#ffad9b'};
+    color: ${({ theme }) => theme.primaryWhite};
+  }
 `;
 
 const StyledLink = styled(Link)`
   text-decoration: none;
-  color: ${({ issecondary, theme }) =>
-    issecondary ? theme.primaryWhite : theme.primaryBlack};
+  color: inherit;
 
   &::after {
     content: ${({ issecondary }) => (issecondary ? "''" : 'unset')};
@@ -31,7 +40,7 @@ const StyledLink = styled(Link)`
   }
 `;
 
-const Button = ({ issecondary, children, to = '/#' }) => {
+const Button = ({ issecondary = false, children, to = '/#' }) => {
   return (
     <StyledButton issecondary={issecondary}>
       <StyledLink to={to} issecondary={issecondary}>

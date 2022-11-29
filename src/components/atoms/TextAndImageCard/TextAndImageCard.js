@@ -2,9 +2,14 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 const StyledTextWithImage = styled.div`
+  width: 100vw;
   margin-bottom: 120px;
+  margin-left: -25px;
+  z-index: 1;
 
   ${({ theme }) => theme.mq.tablet} {
+    width: 100%;
+    margin-left: 0;
     border-radius: 15px;
     overflow: hidden;
   }
@@ -18,6 +23,8 @@ const StyledImage = styled.div`
   max-width: 375px;
   height: 350px;
   background-color: lightgrey;
+  z-index: 1;
+
   ${({ theme }) => theme.mq.tablet} {
     max-width: 690px;
   }
@@ -33,13 +40,14 @@ const StyledTitle = styled.h2`
   font-size: 32px;
   line-height: 36px;
   color: ${({ theme }) => theme.primaryPeach};
+  z-index: 1;
 `;
 
 const StyledWrapper = styled.div`
   padding: 80px 24px;
   background-color: ${({ theme }) => theme.secondaryLigthPeach};
   text-align: center;
-
+  z-index: 1;
   ${({ theme }) => theme.mq.desktop} {
     display: flex;
     align-items: center;
