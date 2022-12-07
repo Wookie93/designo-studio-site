@@ -1,3 +1,4 @@
+import { GatsbyImage } from 'gatsby-plugin-image';
 import * as React from 'react';
 import styled from 'styled-components';
 
@@ -17,28 +18,27 @@ const StyledTextWithImage = styled.div`
     display: flex;
     flex-direction: ${({ ifImgLeft }) => (!ifImgLeft ? 'row' : 'row-reverse')};
   }
-`;
-const StyledImage = styled.div`
-  width: 100%;
-  max-width: 375px;
-  height: 350px;
-  background-color: lightgrey;
-  z-index: 1;
 
-  ${({ theme }) => theme.mq.tablet} {
-    max-width: 690px;
-  }
-  ${({ theme }) => theme.mq.desktop} {
-    max-width: 476px;
-    width: 476px;
-    height: 640px;
-    flex-shrink: 0;
+  .gatsby-image-wrapper {
+    width: 100%;
+    height: 320px;
+    z-index: 1;
+
+    ${({ theme }) => theme.mq.desktop} {
+      width: 476px;
+      height: unset;
+    }
+
+    img {
+      width: 100%;
+      ${({ theme }) => theme.mq.tablet} {
+        width: auto;
+      }
+    }
   }
 `;
 
 const StyledTitle = styled.h2`
-  font-size: 32px;
-  line-height: 36px;
   color: ${({ theme }) => theme.primaryPeach};
   z-index: 1;
 `;
@@ -51,22 +51,21 @@ const StyledWrapper = styled.div`
   ${({ theme }) => theme.mq.desktop} {
     display: flex;
     align-items: center;
+    width: 624px;
     height: 640px;
     padding: 0 96px;
     text-align: left;
   }
 
   p {
-    font-size: 15px;
     margin-top: 24px;
   }
 `;
 
-const TextAndImageCard = ({ children, title, par1, par2, ifImgLeft }) => {
+const TextAndImageCard = ({ title, par1, par2, ifImgLeft, images }) => {
   return (
     <StyledTextWithImage ifImgLeft={ifImgLeft}>
-      {children}
-      <StyledImage />
+      <GatsbyImage image={images} alt="about-us-image" />
       <StyledWrapper>
         <div>
           <StyledTitle>{title}</StyledTitle>

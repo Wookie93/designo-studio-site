@@ -6,20 +6,12 @@ export const theme = {
   secondaryLigthPeach: '#FDF3F0',
   secondaryDarkGray: 'rgba(51, 49, 54, 1)',
   secondaryLigthGray: ' rgba(241, 243, 245, 1)',
+  transparent: 'rgba(255, 255, 255, 0)',
   radius: '8px',
-  font: {
-    size: {
-      xxl: '48px',
-      xl: '40px',
-      l: '24px',
-      m: '16px',
-      s: '12px',
-      xs: '10px',
-    },
-    sizeMobile: {
-      xxl: '32px',
-      m: '15px',
-    },
+  fontSize: {
+    l: '24px',
+    m: '16px',
+    s: '14px',
   },
   familiy: {
     jost: '"Jost", "sans-serif"',

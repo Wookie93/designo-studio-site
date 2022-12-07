@@ -2,7 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 import Banner from '../../atoms/Banner/Banner.js';
 
-const ImageWithTextSection = styled.section`
+const GridThreeImg = styled.section`
   display: grid;
   margin-bottom: 120px;
   row-gap: 24px;
@@ -15,28 +15,19 @@ const ImageWithTextSection = styled.section`
   }
 `;
 
-const Banners = () => {
+const Banners = ({ data }) => {
   return (
-    <ImageWithTextSection>
-      <Banner
-        title={'Web Design'}
-        link={'/web-design'}
-        mobile={'webDesignMobile'}
-        desktop={'webDesign'}
-      />
-      <Banner
-        title={'App Design'}
-        link={'/app-design'}
-        mobile={'appDesignMobile'}
-        desktop={'appDesign'}
-      />
-      <Banner
-        title={'Graphic Design'}
-        link={'/graphic-desing'}
-        mobile={'graphicDesignMobile'}
-        desktop={'graphicDesign'}
-      />
-    </ImageWithTextSection>
+    <GridThreeImg>
+      {data.map((banner, index) => (
+        <Banner
+          title={banner.bannerTitle}
+          link={'/' + banner.bannerLink.slug}
+          mobile={banner.bannerImg[1]}
+          desktop={banner.bannerImg[0]}
+          key={index}
+        />
+      ))}
+    </GridThreeImg>
   );
 };
 

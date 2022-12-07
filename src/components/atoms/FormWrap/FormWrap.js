@@ -1,28 +1,44 @@
 import * as React from 'react';
-import { StaticImage } from 'gatsby-plugin-image';
 import {
   StyledWrapper,
   StyledContentWrapper,
   StyledFormWrapper,
+  StyledFormButton,
 } from './FormWrap.styles';
 
-import StyledInput from '../StyledInput/StyledInput';
+import { Formik } from 'formik';
+import StyledField from '../StyledField/StyledField';
 
 const FormWrap = () => {
-  const submitForm = (e) => {
-    e.preventDefault();
+  function validateEmail(value) {
+    let error;
+    if (!value) {
+      error = 'Can’t be empty';
+    } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(value)) {
+      error = 'Invalid email address';
+    }
+    return error;
+  }
 
-    validateInputs();
-  };
-
-  const validateInputs = () => {};
+  function validateField(value) {
+    let error;
+    if (!value) {
+      error = 'Can’t be empty';
+    }
+    return error;
+  }
+  function validatePhone(value) {
+    let error;
+    if (!value) {
+      error = 'Can’t be empty';
+    } else if (!/^\d+$/i.test(value)) {
+      error = 'Invalid phone number';
+    }
+    return error;
+  }
 
   return (
     <StyledWrapper>
-      <StaticImage
-        src="../assets/bcgs/desktop/bg-pattern-hero-home.svg"
-        alt=""
-      />
       <StyledContentWrapper>
         <h2>Contact Us</h2>
         <p>
@@ -32,15 +48,53 @@ const FormWrap = () => {
           drop us a line.
         </p>
       </StyledContentWrapper>
-      <StyledFormWrapper>
-        <StyledInput label="Name" name="name" />
-        <StyledInput label="Email Address" name="email" />
-        <StyledInput label="Phone" name="phone" />
-        <StyledInput label="Your Message" name="msg" />
-        <button type="submit" onClick={submitForm}>
-          Submit
-        </button>
-      </StyledFormWrapper>
+
+      <Formik
+        initialValues={{ name: '', email: '', phone: '', msg: '' }}
+        onSubmit={(values, { setSubmitting }) => {
+          setTimeout(() => {
+            alert(JSON.stringify(values, null, 2));
+            setSubmitting(false);
+          }, 400);
+        }}
+      >
+        {({ values, isSubmitting }) => (
+          <StyledFormWrapper>
+            <StyledField
+              label="Name"
+              type="text"
+              name="name"
+              validate={validateField}
+              value={values.name}
+            />
+            <StyledField
+              label="Email Address"
+              type="email"
+              name="email"
+              validate={validateEmail}
+              value={values.email}
+            />
+            <StyledField
+              label="Phone"
+              type="phone"
+              name="phone"
+              validate={validatePhone}
+              value={values.phone}
+            />
+            <StyledField
+              label="Your Message"
+              type="text"
+              name="msg"
+              validate={validateField}
+              value={values.msg}
+            />
+
+            <StyledFormButton type="submit" disabled={isSubmitting}>
+              Submit
+            </StyledFormButton>
+          </StyledFormWrapper>
+        )}
+      </Formik>
     </StyledWrapper>
   );
 };

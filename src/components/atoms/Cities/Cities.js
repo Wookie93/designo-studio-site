@@ -74,7 +74,9 @@ const Cities = () => {
         </ImageWrap>
         <ContentWrap>
           <p>Canada</p>
-          <Button>See Location</Button>
+          <Button issecondary to="/locations">
+            See Location
+          </Button>
         </ContentWrap>
       </CityWrap>
 
@@ -87,7 +89,9 @@ const Cities = () => {
         </ImageWrap>
         <ContentWrap>
           <p>Australia</p>
-          <Button>See Location</Button>
+          <Button issecondary to="/locations">
+            See Location
+          </Button>
         </ContentWrap>
       </CityWrap>
 
@@ -100,7 +104,9 @@ const Cities = () => {
         </ImageWrap>
         <ContentWrap>
           <p>United Kingdom</p>
-          <Button>See Location</Button>
+          <Button issecondary to="/locations">
+            See Location
+          </Button>
         </ContentWrap>
       </CityWrap>
     </Wrap>

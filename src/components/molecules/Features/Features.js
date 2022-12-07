@@ -18,6 +18,7 @@ const StyledIconWrap = styled.div`
   align-items: center;
   text-align: center;
   margin-bottom: 80px;
+  z-index: 1;
 
   ${({ theme }) => theme.mq.desktop} {
     margin-bottom: 0px;

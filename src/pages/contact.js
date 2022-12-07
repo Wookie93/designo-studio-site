@@ -1,4 +1,6 @@
 import * as React from 'react';
+
+/// COMPONENTS
 import Cities from '../components/atoms/Cities/Cities.js';
 import FormWrap from '../components/atoms/FormWrap/FormWrap.js';
 

@@ -14,7 +14,7 @@ module.exports = {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
         google: {
-          families: ['Jost'],
+          families: ['Jost:400,500'],
         },
       },
     },
@@ -24,6 +24,8 @@ module.exports = {
         defaults: {
           placeholder: 'blurred',
           backgroundColor: `transparent`,
+          formats: [`webp`, `png`, `jpeg`],
+          quality: 90,
         },
       },
     },

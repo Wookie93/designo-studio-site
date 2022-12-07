@@ -1,8 +1,10 @@
 import * as React from 'react';
+import { useLocation } from '@reach/router';
 import styled from 'styled-components';
-import DesktopNavList from '../../atoms/DesktopNavList/DesktopNavList';
 import Logo from '../../atoms/Logo/Logo';
-import MobileNavList from '../../atoms/MobileNavList/MobileNavList';
+import hamburgerIco from '../../../assets/icons/icon-hamburger.svg';
+import closeIco from '../../../assets/icons/icon-close.svg';
+import MenuLinks from '../../atoms/MenuLinks/MenuLinks';
 
 const StyledNav = styled.nav`
   position: sticky;
@@ -29,13 +31,62 @@ const StyledNav = styled.nav`
   }
 `;
 
+const MobileListWrap = styled.div`
+  &::after {
+    content: '';
+    display: block;
+    background-color: black;
+  }
+  ${({ theme }) => theme.mq.tablet} {
+    display: none;
+  }
+
+  .burger-ico {
+    background: none;
+    border: none;
+  }
+`;
+
+const usePrevious = (value) => {
+  const ref = React.useRef();
+  React.useEffect(() => {
+    ref.current = value;
+  });
+  return ref.current;
+};
+
 const Navigation = () => {
+  const [burger, toggleBurger] = React.useState(false);
+  const location = useLocation();
+  const prevLocation = usePrevious(location);
+
+  function toggleMenu(burger) {
+    toggleBurger(burger);
+    document.querySelector('body').classList.toggle('open-menu');
+  }
+
+  React.useEffect(() => {
+    if (location !== prevLocation) {
+      toggleBurger(false);
+      document.querySelector('body').classList.remove('open-menu');
+    }
+  }, [location, prevLocation, toggleBurger]);
+
   return (
     <>
       <StyledNav>
         <Logo type={'dark'} />
-        <DesktopNavList />
-        <MobileNavList />
+        <MobileListWrap>
+          <button
+            className="burger-ico"
+            onClick={() => {
+              toggleMenu(!burger);
+            }}
+          >
+            <img src={burger ? closeIco : hamburgerIco} />
+          </button>
+        </MobileListWrap>
+        <MenuLinks style={burger ? 'open' : null} />
       </StyledNav>
     </>
   );

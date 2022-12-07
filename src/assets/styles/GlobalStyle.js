@@ -12,30 +12,38 @@ html{
     font-family: ${theme.familiy.jost};
 }
 
+#gatsby-focus-wrapper{
+    overflow-x: hidden;
+}
 
 h1{
-    font-size: ${theme.font.sizeMobile.xxl};
+    font-size: 32px;
     line-height: 36px;
 
     ${theme.mq.tablet}{
-        font-size: ${theme.font.size.xxl};
-        line-height: 48px;
+        font-size: 48px;
+    line-height: 48px;
     }
+
 }
 h2{
     font-size: 32px;
     letter-spacing: 2px;
     line-height: 36px;
 
-    ${theme.mq.desktop}{
-        font-size: ${theme.font.size.xl};
+    ${theme.mq.tablet}{
+        font-size: 40px;
         line-height: 48px;
     }
 }
 h3{
-    font-size: ${theme.font.size.l};
+    font-size: 20px;
     letter-spacing: 5px;
-    font-weight: 400;
+}
+h1, 
+h2,
+h3{
+    font-weight: 500;
 }
 section{
     margin-bottom: 120px;
@@ -44,17 +52,28 @@ section{
     ${theme.mq.tablet} {
     padding: 0;
     }
+    ${theme.mq.desktop}{
+        margin-bottom: 160px;
+    }
 }
 p,
 button, 
-a{
-    font-size: ${theme.font.size.m};
+a,
+span{
+    font-size: 15px;
     font-weight: 400;
     line-height: 26px;
+    ${theme.mq.tablet}{
+        font-size: 16px; 
+    }
 }
 p{
     color:${theme.primaryBlack};
     transition: color 0.3s linear;
+}
+button,
+a{
+    font-weight: 500;
 }
 
 .open-menu{
@@ -89,6 +108,13 @@ p{
 
     &.main-page{
     top: 475px;
+
+    &.bottom{
+        top: 1800px;
+        left: unset;
+        right: 0;
+        transform: rotate(-180deg);
+    }
     }
 
     &.contact-page{

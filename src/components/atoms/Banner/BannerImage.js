@@ -1,9 +1,6 @@
 import * as React from 'react';
-import { useStaticQuery, graphql } from 'gatsby';
-import { GatsbyImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 import styled from 'styled-components';
-
-//// src set ???
 
 const Wrapper = styled.div`
   .mobile-only {
@@ -21,55 +18,8 @@ const Wrapper = styled.div`
 `;
 
 const BannerImage = ({ mobile, desktop }) => {
-  const data = useStaticQuery(graphql`
-    query {
-      appDesign: file(
-        relativePath: { eq: "main-page/desktop/image-app-design.jpg" }
-      ) {
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
-      appDesignMobile: file(
-        relativePath: { eq: "main-page/mobile/image-app-design.jpg" }
-      ) {
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
-      webDesignMobile: file(
-        relativePath: { eq: "main-page/mobile/image-web-design.jpg" }
-      ) {
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
-      webDesign: file(
-        relativePath: { eq: "main-page/desktop/image-web-design-large.jpg" }
-      ) {
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
-      graphicDesignMobile: file(
-        relativePath: { eq: "main-page/mobile/image-graphic-design.jpg" }
-      ) {
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
-      graphicDesign: file(
-        relativePath: { eq: "main-page/desktop/image-graphic-design.jpg" }
-      ) {
-        childImageSharp {
-          gatsbyImageData
-        }
-      }
-    }
-  `);
-
-  const imageMobile = data[mobile].childImageSharp.gatsbyImageData;
-  const imageDesktop = data[desktop].childImageSharp.gatsbyImageData;
+  const imageMobile = getImage(mobile.gatsbyImageData);
+  const imageDesktop = getImage(desktop.gatsbyImageData);
 
   return (
     <Wrapper>
@@ -77,19 +27,13 @@ const BannerImage = ({ mobile, desktop }) => {
         style={{ gridArea: '1/1', borderRadius: '8px' }}
         className="mobile-only"
         image={imageMobile}
-        alt=""
+        alt={mobile.title + '-image'}
       />
-      {/* <GatsbyImage
-        style={{ gridArea: '1/1', borderRadius: '8px', width: '100%' }}
-        className="tablet-only"
-        image={imageTablet}
-        alt=""
-      /> */}
       <GatsbyImage
         style={{ gridArea: '1/1', borderRadius: '8px', width: '100%' }}
         className="desktop-only"
         image={imageDesktop}
-        alt=""
+        alt={desktop.title + '-image'}
       />
     </Wrapper>
   );

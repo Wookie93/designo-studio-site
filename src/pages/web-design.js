@@ -18,18 +18,15 @@ const WebDesignPage = ({ data }) => {
       />
       <PortfolioCardList data={data.datoCmsPortfoliopage.portfoliocard} />
       <StyledWrapFlex50>
-        <Banner
-          title={'App Design'}
-          link={'/app-design'}
-          mobile={'appDesignMobile'}
-          desktop={'appDesign'}
-        />
-        <Banner
-          title={'Graphic Design'}
-          link={'/graphic-design'}
-          mobile={'graphicDesignMobile'}
-          desktop={'graphicDesign'}
-        />
+        {data.datoCmsPortfoliopage.banner.map((banner, index) => (
+          <Banner
+            title={banner.bannerTitle}
+            link={'/' + banner.bannerLink.slug}
+            mobile={banner.bannerImg[1]}
+            desktop={banner.bannerImg[0]}
+            key={index}
+          />
+        ))}
       </StyledWrapFlex50>
       <div className="leaf-bcg"></div>
     </>
@@ -52,7 +49,7 @@ export const query = graphql`
       banner {
         bannerTitle
         bannerLink {
-          id
+          slug
         }
         bannerImg {
           gatsbyImageData
@@ -62,40 +59,5 @@ export const query = graphql`
     }
   }
 `;
-
-// export const query = graphql`
-//   query {
-//     imageExpress: file(relativePath: { eq: "web-design/image-express.jpg" }) {
-//       childImageSharp {
-//         gatsbyImageData
-//       }
-//     }
-//     imageTransfer: file(relativePath: { eq: "web-design/image-transfer.jpg" }) {
-//       childImageSharp {
-//         gatsbyImageData
-//       }
-//     }
-//     imagePhoton: file(relativePath: { eq: "web-design/image-photon.jpg" }) {
-//       childImageSharp {
-//         gatsbyImageData
-//       }
-//     }
-//     imageBuilder: file(relativePath: { eq: "web-design/image-builder.jpg" }) {
-//       childImageSharp {
-//         gatsbyImageData
-//       }
-//     }
-//     imageBlogr: file(relativePath: { eq: "web-design/image-blogr.jpg" }) {
-//       childImageSharp {
-//         gatsbyImageData
-//       }
-//     }
-//     imageCamp: file(relativePath: { eq: "web-design/image-camp.jpg" }) {
-//       childImageSharp {
-//         gatsbyImageData
-//       }
-//     }
-//   }
-// `;
 
 export const Head = () => <title>Web Design</title>;

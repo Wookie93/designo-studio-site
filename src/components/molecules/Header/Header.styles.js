@@ -24,6 +24,7 @@ export const StyledHeaderWrapper = styled.section`
   }
 
   .gatsby-image-wrapper {
+    width: 100%;
     height: 320px;
     margin-bottom: 16px;
 

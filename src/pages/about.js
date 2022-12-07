@@ -1,10 +1,50 @@
-import { StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage, withArtDirection } from 'gatsby-plugin-image';
 import * as React from 'react';
+import { graphql } from 'gatsby';
 import Header from '../components/molecules/Header/Header';
 import TextAndImageCard from '../components/atoms/TextAndImageCard/TextAndImageCard';
 import Cities from '../components/atoms/Cities/Cities';
 
-const AboutUsPage = () => {
+const AboutUsPage = ({ data }) => {
+  const heroImages = withArtDirection(getImage(data.aboutHero.edges[0].node), [
+    {
+      media: '(max-width: 476px)',
+      image: getImage(data.aboutHeroMobile.edges[0].node),
+    },
+    {
+      media: '(max-width: 1024px)',
+      image: getImage(data.aboutHeroTablet.edges[0].node),
+    },
+  ]);
+
+  const worldClassImages = withArtDirection(
+    getImage(data.worldClassTalent.edges[0].node),
+    [
+      {
+        media: '(max-width: 476px)',
+        image: getImage(data.worldClassTalentMobile.edges[0].node),
+      },
+      {
+        media: '(max-width: 1024px)',
+        image: getImage(data.worldClassTalentTablet.edges[0].node),
+      },
+    ]
+  );
+
+  const realDealImages = withArtDirection(
+    getImage(data.realDeal.edges[0].node),
+    [
+      {
+        media: '(max-width: 476px)',
+        image: getImage(data.realDealMobile.edges[0].node),
+      },
+      {
+        media: '(max-width: 1024px)',
+        image: getImage(data.realDealTablet.edges[0].node),
+      },
+    ]
+  );
+
   return (
     <>
       <Header
@@ -15,10 +55,7 @@ const AboutUsPage = () => {
         ifImage={true}
         ifBcg={false}
       >
-        <StaticImage
-          src="../assets/images/about/desktop/image-about-hero.jpg"
-          alt="about-us"
-        />
+        <GatsbyImage image={heroImages} alt="hero-image" />
       </Header>
 
       <TextAndImageCard
@@ -30,7 +67,8 @@ const AboutUsPage = () => {
           'Our team is multi-disciplinary and we are not merely interested in form — content and meaning are just as important. We give great importance to craftsmanship, service, and prompt delivery. Clients have always been impressed with our high-quality outcomes that encapsulates their brand’s story and mission.'
         }
         ifImgLeft={false}
-      ></TextAndImageCard>
+        images={worldClassImages}
+      />
 
       <Cities />
 
@@ -43,7 +81,8 @@ const AboutUsPage = () => {
           'We are visual storytellers in appealing and captivating ways. By combining business and marketing strategies, we inspire audiences to take action and drive real results.'
         }
         ifImgLeft={true}
-      ></TextAndImageCard>
+        images={realDealImages}
+      />
       <div className="leaf-bcg main-page"></div>
     </>
   );
@@ -52,3 +91,84 @@ const AboutUsPage = () => {
 export default AboutUsPage;
 
 export const Head = () => <title>About Us</title>;
+export const query = graphql`
+  query {
+    aboutHero: allDatoCmsAsset(filter: { notes: { eq: "about-hero" } }) {
+      edges {
+        node {
+          gatsbyImageData
+        }
+      }
+    }
+    aboutHeroTablet: allDatoCmsAsset(
+      filter: { notes: { eq: "about-hero-tablet" } }
+    ) {
+      edges {
+        node {
+          gatsbyImageData
+        }
+      }
+    }
+    aboutHeroMobile: allDatoCmsAsset(
+      filter: { notes: { eq: "about-hero-mobile" } }
+    ) {
+      edges {
+        node {
+          gatsbyImageData
+        }
+      }
+    }
+    worldClassTalent: allDatoCmsAsset(
+      filter: { notes: { eq: "world-class-talent" } }
+    ) {
+      edges {
+        node {
+          gatsbyImageData
+        }
+      }
+    }
+    worldClassTalentTablet: allDatoCmsAsset(
+      filter: { notes: { eq: "world-class-talent-tablet" } }
+    ) {
+      edges {
+        node {
+          gatsbyImageData
+        }
+      }
+    }
+    worldClassTalentMobile: allDatoCmsAsset(
+      filter: { notes: { eq: "world-class-talent-mobile" } }
+    ) {
+      edges {
+        node {
+          gatsbyImageData
+        }
+      }
+    }
+    realDeal: allDatoCmsAsset(filter: { notes: { eq: "real-deal" } }) {
+      edges {
+        node {
+          gatsbyImageData
+        }
+      }
+    }
+    realDealTablet: allDatoCmsAsset(
+      filter: { notes: { eq: "real-deal-tablet" } }
+    ) {
+      edges {
+        node {
+          gatsbyImageData
+        }
+      }
+    }
+    realDealMobile: allDatoCmsAsset(
+      filter: { notes: { eq: "real-deal-mobile" } }
+    ) {
+      edges {
+        node {
+          gatsbyImageData
+        }
+      }
+    }
+  }
+`;

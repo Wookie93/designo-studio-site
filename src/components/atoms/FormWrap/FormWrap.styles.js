@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Form } from 'formik';
 
 export const StyledWrapper = styled.div`
   position: relative;
@@ -58,11 +59,30 @@ export const StyledContentWrapper = styled.div`
   }
 `;
 
-export const StyledFormWrapper = styled.form`
+export const StyledFormWrapper = styled(Form)`
   margin-top: 48px;
   text-align: center;
 
   ${({ theme }) => theme.mq.tablet} {
     text-align: right;
+  }
+`;
+
+export const StyledFormButton = styled.button`
+  color: ${({ theme }) => theme.primaryBlack};
+  padding: 18px 25px;
+  background-color: ${({ theme }) => theme.primaryWhite};
+  border: none;
+  border-radius: 8px;
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-transform: uppercase;
+  transition: all 0.3s linear;
+  cursor: pointer;
+  z-index: 2;
+
+  &:hover {
+    background-color: #ffad9b;
+    color: ${({ theme }) => theme.primaryWhite};
   }
 `;

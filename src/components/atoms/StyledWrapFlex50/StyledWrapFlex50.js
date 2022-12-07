@@ -7,4 +7,8 @@ export const StyledWrapFlex50 = styled.div`
   ${({ theme }) => theme.mq.desktop} {
     flex-direction: row;
   }
+
+  .gatsby-image-wrapper {
+    max-height: 304px;
+  }
 `;

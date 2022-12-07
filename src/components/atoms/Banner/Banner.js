@@ -1,7 +1,8 @@
 import * as React from 'react';
+import { Link } from 'gatsby';
 import styled from 'styled-components';
 import BannerImage from './BannerImage.js';
-import Button from '../Button/Button.js';
+import arrow from '../../../assets/icons/icon-right-arrow.svg';
 
 const BannerWrapper = styled.div`
   position: relative;
@@ -75,6 +76,23 @@ const StyledTitle = styled.h2`
   font-weight: 500;
 `;
 
+const StyledLink = styled(Link)`
+  margin-top: 24px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  text-decoration: unset;
+  color: ${({ theme }) => theme.primaryWhite};
+
+  &::after {
+    content: '';
+    display: inline-block;
+    width: 15px;
+    height: 15px;
+    background: url(${arrow}) no-repeat center;
+    margin-left: 15px;
+  }
+`;
+
 const Banner = ({ title, link, mobile, desktop }) => {
   return (
     <BannerWrapper>
@@ -82,9 +100,7 @@ const Banner = ({ title, link, mobile, desktop }) => {
       <div>
         <Content>
           <StyledTitle>{title}</StyledTitle>
-          <Button issecondary={true} to={link}>
-            View Projects
-          </Button>
+          <StyledLink to={link}>View Projects</StyledLink>
         </Content>
       </div>
     </BannerWrapper>

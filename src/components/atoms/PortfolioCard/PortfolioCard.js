@@ -70,10 +70,10 @@ const StyledContener = styled.div`
   }
 `;
 
-const PortfolioCard = ({ key, title, desc, portoflioImg }) => {
+const PortfolioCard = ({ title, desc, portoflioImg }) => {
   const image = getImage(portoflioImg);
   return (
-    <StyledPortfolioCard key={key}>
+    <StyledPortfolioCard>
       <StyledImageWrap>
         <GatsbyImage image={image} alt="" />
       </StyledImageWrap>

@@ -23,7 +23,7 @@ export const StyledHeaderWrapper = styled.section`
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    padding-left: ${({ ifImage }) => (ifImage ? '95px' : '0')};
+    padding-left: 95px;
   }
 
   .gatsby-image-wrapper {
@@ -95,27 +95,24 @@ export const StyledHeaderTextWrapper = styled.div`
     order: -1;
     width: 480px;
     align-items: flex-start;
-    text-align: ${({ ifImage }) => (ifImage ? 'left' : 'center')};
-    margin: ${({ ifImage }) => (ifImage ? '0' : '64px 0')};
+    text-align: left;
+    margin: 0;
     padding: 0;
   }
 `;
 
-const MainHeader = ({
-  children,
-  title,
-  desc,
-  ifBtn = false,
-  ifImage = false,
-}) => {
+const MainHeader = ({ title, desc }) => {
   return (
-    <StyledHeaderWrapper ifImage={ifImage}>
-      <StyledHeaderTextWrapper ifImage={ifImage}>
+    <StyledHeaderWrapper>
+      <StyledHeaderTextWrapper>
         <h1>{title}</h1>
         <p>{desc}</p>
-        {!ifBtn ? null : <Button>Learn more</Button>}
+        <Button>Learn more</Button>
       </StyledHeaderTextWrapper>
-      {children}
+      <StaticImage
+        src="../../../assets/images/main-page/desktop/image-hero-phone.png"
+        alt="hero-image"
+      />
       <StaticImage
         src="../../../assets/bcgs/desktop/bg-pattern-hero-home.svg"
         alt=""
