@@ -70,8 +70,6 @@ const AboutUsPage = ({ data }) => {
         images={worldClassImages}
       />
 
-      <Cities />
-
       <TextAndImageCard
         title={'The real deal'}
         par1={

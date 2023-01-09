@@ -1,32 +1,14 @@
 import * as React from 'react';
 import { Link } from 'gatsby';
-import { StaticImage } from 'gatsby-plugin-image';
+import { GatsbyImage, getImage } from 'gatsby-plugin-image';
 
-const Logo = ({ type }) => (
-  <>
-    {type === 'dark' ? (
-      <Link to="/">
-        {' '}
-        <StaticImage
-          src="../../../assets/images/logo-dark.png"
-          alt="Logo"
-          placeholder="blurred"
-          width={202}
-          height={27}
-        ></StaticImage>
-      </Link>
-    ) : (
-      <Link to="/">
-        <StaticImage
-          src="../../../assets/images/logo-light.png"
-          alt="Logo"
-          placeholder="blurred"
-          width={202}
-          height={27}
-        ></StaticImage>
-      </Link>
-    )}
-  </>
-);
+const Logo = ({ data }) => {
+  const image = getImage(data);
+  return (
+    <Link to="/">
+      <GatsbyImage image={image} alt="Logo" />
+    </Link>
+  );
+};
 
 export default Logo;

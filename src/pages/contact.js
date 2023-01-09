@@ -8,7 +8,7 @@ const ContactPage = () => {
   return (
     <>
       <FormWrap />
-      <Cities />
+
       <div className="leaf-bcg contact-page"></div>
     </>
   );

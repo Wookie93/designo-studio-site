@@ -5,6 +5,7 @@ import Logo from '../../atoms/Logo/Logo';
 import hamburgerIco from '../../../assets/icons/icon-hamburger.svg';
 import closeIco from '../../../assets/icons/icon-close.svg';
 import MenuLinks from '../../atoms/MenuLinks/MenuLinks';
+import { useStaticQuery, graphql } from 'gatsby';
 
 const StyledNav = styled.nav`
   position: sticky;
@@ -56,6 +57,18 @@ const usePrevious = (value) => {
 };
 
 const Navigation = () => {
+  const data = useStaticQuery(graphql`
+    query {
+      datoCmsHeader {
+        logo {
+          logo {
+            gatsbyImageData(width: 202)
+          }
+        }
+      }
+    }
+  `);
+
   const [burger, toggleBurger] = React.useState(false);
   const location = useLocation();
   const prevLocation = usePrevious(location);
@@ -75,7 +88,7 @@ const Navigation = () => {
   return (
     <>
       <StyledNav>
-        <Logo type={'dark'} />
+        <Logo data={data.datoCmsHeader.logo[0].logo} />
         <MobileListWrap>
           <button
             className="burger-ico"

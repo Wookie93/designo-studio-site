@@ -19,13 +19,7 @@ const Banners = ({ data }) => {
   return (
     <GridThreeImg>
       {data.map((banner, index) => (
-        <Banner
-          title={banner.bannerTitle}
-          link={'/' + banner.bannerLink.slug}
-          mobile={banner.bannerImg[1]}
-          desktop={banner.bannerImg[0]}
-          key={index}
-        />
+        <Banner data={banner} key={index} />
       ))}
     </GridThreeImg>
   );
