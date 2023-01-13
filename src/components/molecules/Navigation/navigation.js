@@ -1,52 +1,16 @@
 import * as React from 'react';
+import { useStaticQuery, graphql } from 'gatsby';
 import { useLocation } from '@reach/router';
-import styled from 'styled-components';
+
+/// Styles
+import { StyledNav, MobileListWrap } from './navigation.styles';
+/// Components
 import Logo from '../../atoms/Logo/Logo';
+import MenuLinks from '../../atoms/MenuLinks/MenuLinks';
+
+/// Assets
 import hamburgerIco from '../../../assets/icons/icon-hamburger.svg';
 import closeIco from '../../../assets/icons/icon-close.svg';
-import MenuLinks from '../../atoms/MenuLinks/MenuLinks';
-import { useStaticQuery, graphql } from 'gatsby';
-
-const StyledNav = styled.nav`
-  position: sticky;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 96px;
-  padding: 0 25px;
-  top: 0;
-  background-color: ${({ theme }) => theme.primaryWhite};
-  z-index: 10;
-
-  ${({ theme }) => theme.mq.tablet} {
-    position: relative;
-    max-width: 690px;
-    height: 155px;
-    padding: 0;
-    margin: auto;
-  }
-
-  ${({ theme }) => theme.mq.desktop} {
-    max-width: 1110px;
-    margin: auto;
-  }
-`;
-
-const MobileListWrap = styled.div`
-  &::after {
-    content: '';
-    display: block;
-    background-color: black;
-  }
-  ${({ theme }) => theme.mq.tablet} {
-    display: none;
-  }
-
-  .burger-ico {
-    background: none;
-    border: none;
-  }
-`;
 
 const usePrevious = (value) => {
   const ref = React.useRef();
@@ -58,7 +22,7 @@ const usePrevious = (value) => {
 
 const Navigation = () => {
   const data = useStaticQuery(graphql`
-    query {
+    query getLogoImg {
       datoCmsHeader {
         logo {
           logo {

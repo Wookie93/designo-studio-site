@@ -3,10 +3,11 @@ import { graphql } from 'gatsby';
 import LocationBox from '../components/atoms/LocationBox/locationBox';
 
 const LocationsPage = ({ data }) => {
-  console.log(data.datoCmsPage.locationbox);
+  const { locationbox } = data.datoCmsLocationpage;
+
   return (
     <>
-      {data.datoCmsPage.locationbox.map((location, index) => (
+      {locationbox.map((location, index) => (
         <LocationBox data={location} key={index} />
       ))}
     </>
@@ -19,10 +20,10 @@ export const Head = () => <title>Locations</title>;
 
 export const query = graphql`
   query {
-    datoCmsPage(pagetitle: { eq: "Location" }) {
+    datoCmsLocationpage {
       locationbox {
         title
-        image {
+        locationimage: image {
           gatsbyImageData
         }
         info1

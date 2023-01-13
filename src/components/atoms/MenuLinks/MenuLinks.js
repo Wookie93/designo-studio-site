@@ -24,6 +24,9 @@ const MenuLinks = ({ style }) => {
             ... on DatoCmsContactpage {
               slug
             }
+            ... on DatoCmsLocationpage {
+              slug
+            }
           }
         }
       }

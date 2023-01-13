@@ -42,10 +42,9 @@ export const StyledHeaderWrapper = styled.section`
 
   .bcg {
     position: absolute;
+    width: 100%;
     right: 0;
-    ${({ theme }) => theme.mq.tablet} {
-      width: 80%;
-    }
+    opacity: 0.5;
   }
 `;
 

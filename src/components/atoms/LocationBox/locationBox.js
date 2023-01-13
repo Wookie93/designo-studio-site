@@ -7,10 +7,10 @@ import {
 } from './locationBox.styles';
 
 const LocationBox = ({ data }) => {
-  const images = withArtDirection(getImage(data.image[0]), [
+  const images = withArtDirection(getImage(data.locationimage[0]), [
     {
       media: '(max-width: 1024px)',
-      image: getImage(data.image[1]),
+      image: getImage(data.locationimage[1]),
     },
   ]);
 

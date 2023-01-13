@@ -5,9 +5,9 @@ import PortfolioCard from '../../atoms/PortfolioCard/PortfolioCard';
 const PortfolioCardList = ({ data = [] }) => {
   return (
     <StyledList>
-      {data.map((el) => (
+      {data.map((el, index) => (
         <PortfolioCard
-          key={el.originalId}
+          key={index}
           title={el.portfoliotitle}
           desc={el.portfoliodescription}
           portoflioImg={el.portoflioimage}

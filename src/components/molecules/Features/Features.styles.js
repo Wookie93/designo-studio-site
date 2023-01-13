@@ -18,8 +18,20 @@ export const StyledIconWrap = styled.div`
   margin-bottom: 80px;
   z-index: 1;
 
+  ${({ theme }) => theme.mq.tablet} {
+    height: ${({ haveBtn }) => (haveBtn ? '365px' : 'unset')};
+    justify-content: ${({ haveBtn }) => (haveBtn ? 'space-between' : 'unset')};
+    align-items: center;
+    flex-direction: ${({ haveBtn }) => (haveBtn ? 'column' : 'row')};
+    text-align: left;
+  }
+
   ${({ theme }) => theme.mq.desktop} {
     margin-bottom: 0px;
+    flex-direction: column;
+    align-items: center;
+    max-width: 350px;
+    text-align: center;
   }
 
   h3 {
@@ -36,7 +48,7 @@ export const StyledIconWrap = styled.div`
     flex-shrink: 0;
 
     ${({ theme }) => theme.mq.tablet} {
-      margin-right: 48px;
+      margin-right: ${({ haveBtn }) => (haveBtn ? '0' : '48px')};
     }
     ${({ theme }) => theme.mq.desktop} {
       margin-right: 0;
@@ -64,16 +76,5 @@ export const StyledIconWrap = styled.div`
         transform: matrix(0, -1, -1, 0, 0, 0);
       }
     }
-  }
-
-  ${({ theme }) => theme.mq.tablet} {
-    flex-direction: row;
-    text-align: left;
-  }
-  ${({ theme }) => theme.mq.desktop} {
-    flex-direction: column;
-    align-items: center;
-    max-width: 350px;
-    text-align: center;
   }
 `;

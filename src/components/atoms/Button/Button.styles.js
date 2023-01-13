@@ -4,7 +4,8 @@ import { Link } from 'gatsby';
 export const StyledButton = styled.button`
   color: ${({ issecondary, theme }) =>
     issecondary ? theme.primaryWhite : theme.primaryBlack};
-  padding: 18px 25px;
+  width: 165px;
+  height: 65px;
   background-color: ${({ issecondary, theme }) =>
     issecondary ? theme.primaryPeach : theme.primaryWhite};
   border: none;
@@ -23,6 +24,10 @@ export const StyledButton = styled.button`
 `;
 
 export const StyledLink = styled(Link)`
+  display: block;
+  width: 100%;
+  height: 100%;
+  line-height: 65px;
   text-decoration: none;
   color: inherit;
 `;

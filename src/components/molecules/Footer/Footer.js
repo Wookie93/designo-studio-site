@@ -45,6 +45,9 @@ const Footer = () => {
               ... on DatoCmsContactpage {
                 slug
               }
+              ... on DatoCmsLocationpage {
+                slug
+              }
             }
           }
         }

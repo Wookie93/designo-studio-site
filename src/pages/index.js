@@ -1,12 +1,12 @@
 import * as React from 'react';
 import { graphql } from 'gatsby';
+import { StructuredText } from 'react-datocms';
 
 /// COMPONENTS
 import MainHeader from '../components/atoms/MainHeader/MainHeader';
-import Banners from '../components/molecules/BannersWrap/Banners';
 import Features from '../components/molecules/Features/Features';
 import TextAndImageCard from '../components/atoms/TextAndImageCard/TextAndImageCard';
-import { StructuredText } from 'react-datocms';
+import BannersWrap from '../components/molecules/BannersWrap/BannersWrap';
 
 const IndexPage = ({ data }) => {
   return (
@@ -24,9 +24,9 @@ const IndexPage = ({ data }) => {
             case 'DatoCmsFeaturewrap':
               return <Features data={record.featuredbox} />;
             case 'DatoCmsBannerwrap':
-              return <Banners data={record.banner} />;
+              return <BannersWrap data={record} />;
             case 'DatoCmsTextImgblock':
-              return <TextAndImageCard title={'World-class talent'} />;
+              return <TextAndImageCard data={record} />;
             default:
               return null;
           }
@@ -85,5 +85,3 @@ export const query = graphql`
     }
   }
 `;
-
-console.log(query);

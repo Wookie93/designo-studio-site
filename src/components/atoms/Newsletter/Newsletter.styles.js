@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { Link } from 'gatsby';
 
 export const StyledNewsletter = styled.div`
   position: relative;
@@ -60,10 +59,14 @@ export const StyledNewsletter = styled.div`
       top: unset;
       right: 0;
     }
+    img {
+      z-index: 0;
+    }
   }
 `;
 
 export const StyledContent = styled.div`
+  position: relative;
   z-index: 1;
   ${({ theme }) => theme.mq.desktop} {
     display: flex;

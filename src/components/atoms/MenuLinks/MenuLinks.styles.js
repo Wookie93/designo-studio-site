@@ -47,6 +47,7 @@ export const StyledMenu = styled.ul`
     left: unset;
     right: unset;
     transform: unset;
+    flex-wrap: wrap;
   }
 
   li {
