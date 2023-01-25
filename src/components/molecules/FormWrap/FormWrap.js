@@ -7,7 +7,7 @@ import {
 } from './FormWrap.styles';
 
 import { Formik } from 'formik';
-import StyledField from '../StyledField/StyledField';
+import StyledFormField from '../../atoms/StyledFormField/StyledFormField';
 
 const FormWrap = () => {
   function validateEmail(value) {
@@ -60,28 +60,28 @@ const FormWrap = () => {
       >
         {({ values, isSubmitting }) => (
           <StyledFormWrapper>
-            <StyledField
+            <StyledFormField
               label="Name"
               type="text"
               name="name"
               validate={validateField}
               value={values.name}
             />
-            <StyledField
+            <StyledFormField
               label="Email Address"
               type="email"
               name="email"
               validate={validateEmail}
               value={values.email}
             />
-            <StyledField
+            <StyledFormField
               label="Phone"
               type="phone"
               name="phone"
               validate={validatePhone}
               value={values.phone}
             />
-            <StyledField
+            <StyledFormField
               label="Your Message"
               type="text"
               name="msg"

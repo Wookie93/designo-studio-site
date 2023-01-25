@@ -8,6 +8,7 @@ import BannersWrap from '../components/molecules/BannersWrap/BannersWrap';
 import LocationBox from '../components/atoms/LocationBox/locationBox';
 import TopBanner from '../components/molecules/TopBanner/TopBanner';
 import Features from '../components/molecules/Features/Features';
+import { ImageBox } from '../components/atoms/ImageBox/ImageBox';
 
 const Page = ({ data }) => {
   const { content } = data.datoCmsPage;
@@ -20,7 +21,7 @@ const Page = ({ data }) => {
           case 'DatoCmsTextImgblock':
             return <TextAndImageCard data={record} />;
           case 'DatoCmsImage':
-            return <p>image</p>;
+            return <ImageBox data={record} />;
           case 'DatoCmsBannerwrap':
             return <BannersWrap data={record} />;
           case 'DatoCmsLocationbox':
@@ -69,6 +70,7 @@ export const query = graphql`
           ... on DatoCmsImage {
             id: originalId
             image {
+              alt
               gatsbyImageData
             }
           }

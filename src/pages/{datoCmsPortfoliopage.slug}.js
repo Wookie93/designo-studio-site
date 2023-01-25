@@ -62,8 +62,8 @@ export const Head = ({ data }) => {
 };
 
 export const query = graphql`
-  query getPortfolioPage($id: String) {
-    datoCmsPortfoliopage(id: { eq: $id }) {
+  query getPortfolioPage {
+    datoCmsPortfoliopage {
       slug
       pagetitle
       topcontent {

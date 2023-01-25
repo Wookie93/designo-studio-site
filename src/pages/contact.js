@@ -2,7 +2,7 @@ import * as React from 'react';
 import { graphql } from 'gatsby';
 
 /// COMPONENTS
-import FormWrap from '../components/atoms/FormWrap/FormWrap.js';
+import FormWrap from '../components/molecules/FormWrap/FormWrap.js';
 import Features from '../components/molecules/Features/Features.js';
 
 const ContactPage = ({ data }) => {

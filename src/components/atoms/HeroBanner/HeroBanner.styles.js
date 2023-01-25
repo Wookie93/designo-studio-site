@@ -1,9 +1,6 @@
-import * as React from 'react';
-import Button from '../../atoms/Button/Button';
 import styled from 'styled-components';
-import { StaticImage } from 'gatsby-plugin-image';
 
-export const StyledHeaderWrapper = styled.section`
+export const StyledHeroWrapper = styled.section`
   position: relative;
   display: flex;
   flex-direction: column;
@@ -14,7 +11,7 @@ export const StyledHeaderWrapper = styled.section`
   overflow: hidden;
 
   ${({ theme }) => theme.mq.tablet} {
-    width: auto;
+    width: 100%;
     margin-left: 0;
     border-radius: ${({ theme }) => theme.radius};
   }
@@ -58,7 +55,7 @@ export const StyledHeaderWrapper = styled.section`
   }
 `;
 
-export const StyledHeaderTextWrapper = styled.div`
+export const StyledTextWrapper = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -67,6 +64,13 @@ export const StyledHeaderTextWrapper = styled.div`
   color: ${({ theme }) => theme.primaryWhite};
   text-align: center;
   z-index: 2;
+
+  ${({ theme }) => theme.mq.desktop} {
+    width: 480px;
+    align-items: flex-start;
+    text-align: left;
+    margin: 0;
+  }
 
   h1 {
     z-index: 0;
@@ -90,36 +94,4 @@ export const StyledHeaderTextWrapper = styled.div`
       width: 85%;
     }
   }
-
-  ${({ theme }) => theme.mq.desktop} {
-    order: -1;
-    width: 480px;
-    align-items: flex-start;
-    text-align: left;
-    margin: 0;
-    padding: 0;
-  }
 `;
-
-const MainHeader = ({ title, desc }) => {
-  return (
-    <StyledHeaderWrapper>
-      <StyledHeaderTextWrapper>
-        <h1>{title}</h1>
-        <p>{desc}</p>
-        <Button>Learn more</Button>
-      </StyledHeaderTextWrapper>
-      <StaticImage
-        src="../../../assets/images/main-page/desktop/image-hero-phone.png"
-        alt="hero-image"
-      />
-      <StaticImage
-        src="../../../assets/bcgs/desktop/bg-pattern-hero-home.svg"
-        alt=""
-        className="bcg"
-      />
-    </StyledHeaderWrapper>
-  );
-};
-
-export default MainHeader;

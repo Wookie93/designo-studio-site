@@ -4,7 +4,7 @@ import { Link } from 'gatsby';
 export const StyledButton = styled.button`
   color: ${({ issecondary, theme }) =>
     issecondary ? theme.primaryWhite : theme.primaryBlack};
-  width: 165px;
+  width: 185px;
   height: 65px;
   background-color: ${({ issecondary, theme }) =>
     issecondary ? theme.primaryPeach : theme.primaryWhite};

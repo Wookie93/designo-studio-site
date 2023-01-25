@@ -8,7 +8,8 @@ import {
 import {
   StyledHeaderWrapper,
   StyledHeaderTextWrapper,
-} from './TopBanner..styles';
+  StyledImageWrap,
+} from './TopBanner.styles';
 
 const TopBanner = ({ data }) => {
   const { title, description, images } = data;
@@ -28,21 +29,21 @@ const TopBanner = ({ data }) => {
   }
 
   return (
-    <StyledHeaderWrapper>
-      <StyledHeaderTextWrapper>
+    <StyledHeaderWrapper ifImage={imageToShow}>
+      <StyledHeaderTextWrapper ifImage={imageToShow}>
         <h1>{title}</h1>
         <p>{description}</p>
       </StyledHeaderTextWrapper>
-      <div className="image-wrap">
-        {images.length > 0 ? (
+      {images.length > 0 ? (
+        <StyledImageWrap>
           <GatsbyImage image={imageToShow} alt="our-company" />
-        ) : null}
-      </div>
+        </StyledImageWrap>
+      ) : null}
 
       <StaticImage
         className="bcg"
         src="../../../assets/bcgs/desktop/bg-pattern-intro-web.svg"
-        alt=""
+        alt="bcg"
         width={876}
       />
     </StyledHeaderWrapper>

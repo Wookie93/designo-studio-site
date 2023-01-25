@@ -60,7 +60,7 @@ const Navigation = () => {
               toggleMenu(!burger);
             }}
           >
-            <img src={burger ? closeIco : hamburgerIco} />
+            <img src={burger ? closeIco : hamburgerIco} alt="menu-ico" />
           </button>
         </MobileListWrap>
         <MenuLinks style={burger ? 'open' : null} />

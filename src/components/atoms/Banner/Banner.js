@@ -26,7 +26,7 @@ const Banner = ({ data }) => {
       <div>
         <Content>
           <StyledTitle>{bannerTitle}</StyledTitle>
-          <StyledLink to={'/' + bannerLink.slug}>View Projects</StyledLink>
+          <StyledLink to={bannerLink.slug}>View Projects</StyledLink>
         </Content>
       </div>
     </BannerWrapper>

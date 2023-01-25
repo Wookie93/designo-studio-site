@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: `designo`,
+    description: `One of my example project. Inpired by FrontedMentor page`,
     siteUrl: `https://www.yourdomain.tld`,
   },
   plugins: [
@@ -36,16 +37,9 @@ module.exports = {
     {
       resolve: 'gatsby-plugin-manifest',
       options: {
-        icon: 'src/assets/images/logo-dark.png',
+        icon: 'src/assets/images/logo-light.png',
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-root-import',
-    //   options: {
-    //     assets: path.join(__dirname, 'designo', 'src', 'assets'),
-    //     components: path.join(__dirname, 'designo', 'src', 'components'),
-    //   },
-    // },
     {
       resolve: 'gatsby-source-filesystem',
       options: {

@@ -3,22 +3,20 @@ import { graphql } from 'gatsby';
 import { StructuredText } from 'react-datocms';
 
 /// COMPONENTS
-import MainHeader from '../components/atoms/MainHeader/MainHeader';
+import HeroBanner from '../components/atoms/HeroBanner/HeroBanner';
 import Features from '../components/molecules/Features/Features';
 import TextAndImageCard from '../components/atoms/TextAndImageCard/TextAndImageCard';
 import BannersWrap from '../components/molecules/BannersWrap/BannersWrap';
 
 const IndexPage = ({ data }) => {
+  const { mainbanner, content } = data.datoCmsIndexpage;
+
+  console.log(mainbanner);
   return (
     <>
-      <MainHeader
-        title={'Award-winning custom designs and digital branding solutions'}
-        desc={
-          'With over 10 years in the industry, we are experienced in creating fully responsive websites, app design, and engaging brand experiences. Find out more about our services.'
-        }
-      />
+      <HeroBanner data={mainbanner} />
       <StructuredText
-        data={data.datoCmsIndexpage.content}
+        data={content}
         renderBlock={({ record }) => {
           switch (record.__typename) {
             case 'DatoCmsFeaturewrap':
@@ -45,6 +43,16 @@ export const Head = () => <title>Home Page</title>;
 export const query = graphql`
   query {
     datoCmsIndexpage {
+      mainbanner {
+        title
+        description
+        buttontext
+        buttonlink
+        image {
+          gatsbyImageData
+          alt
+        }
+      }
       content {
         blocks {
           __typename
