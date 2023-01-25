@@ -1,6 +1,6 @@
 ## 🚀 About project
 
-Here is a demo: 
+Here is a demo: https://dulcet-arithmetic-888891.netlify.app
 
 The design comes from https://www.frontendmentor.io/challenges
 
